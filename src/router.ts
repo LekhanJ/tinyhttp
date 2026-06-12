@@ -6,6 +6,9 @@ export class Router {
     addRoute(method: HttpMethod, path: string, handler: Handler): void {
         const key = `${method}:${path}`;
 
+        if (this.routes.has(key))
+            throw new Error(`Route '${path}' already exists for ${method} method`);
+
         this.routes.set(key, {
             method,
             path,

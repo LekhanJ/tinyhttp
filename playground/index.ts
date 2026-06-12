@@ -4,6 +4,6 @@ const app = new TinyHttp();
 
 app.get("/hello", (c) => {
     return c.json("Hello");
-})
+});
 
-app.listen(3000);
+export default app;
